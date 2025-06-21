@@ -306,7 +306,6 @@ export default function AlumniFormPage() {
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       console.log("Alumni data submitted:", formData);
-      setSubmitStatus("success");
       setShowSuccessAnimation(true);
 
       localStorage.removeItem("alumniFormDraft");
