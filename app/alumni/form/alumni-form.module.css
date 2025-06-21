@@ -1,0 +1,809 @@
+/* Container and Layout */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    rgb(239 246 255),
+    rgb(250 245 255),
+    rgb(254 242 242)
+  );
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai",
+    "Sarabun", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.backgroundDecorations {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.decorativeCircle {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(40px);
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.decorativeCircle1 {
+  top: -10rem;
+  left: -10rem;
+  background: linear-gradient(to right, rgb(96 165 250), rgb(147 51 234));
+  opacity: 0.2;
+}
+
+.decorativeCircle2 {
+  bottom: -10rem;
+  right: -10rem;
+  background: linear-gradient(to right, rgb(248 113 113), rgb(239 68 68));
+  opacity: 0.2;
+  animation-delay: 2s;
+}
+
+.decorativeCircle3 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to right, rgb(74 222 128), rgb(59 130 246));
+  opacity: 0.1;
+  animation-delay: 4s;
+}
+
+/* Progress Bar */
+.progressContainer {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.progressBar {
+  flex: 1;
+  height: 0.5rem;
+  background: rgb(229 231 235);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(to right, rgb(59 130 246), rgb(147 51 234));
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 0.875rem;
+  color: rgb(75 85 99);
+  font-weight: 500;
+}
+
+/* Auto-save Indicator */
+.autoSaveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: rgb(107 114 128);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.autoSaveIndicator svg {
+  color: rgb(34 197 94);
+}
+
+/* Main Content */
+.main {
+  position: relative;
+  z-index: 10;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(to right, rgb(59 130 246), rgb(147 51 234));
+  border-radius: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: bounceIn 0.6s ease;
+}
+
+.iconWrapper svg {
+  color: white;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  background: linear-gradient(
+    to right,
+    rgb(37 99 235),
+    rgb(147 51 234),
+    rgb(219 39 119)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  animation: slideInUp 0.5s ease;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: rgb(55 65 81);
+  font-size: 1.25rem;
+  font-weight: 500;
+  animation: slideInUp 0.5s ease 0.1s backwards;
+}
+
+.divider {
+  margin-top: 1rem;
+  width: 6rem;
+  height: 0.25rem;
+  background: linear-gradient(to right, rgb(59 130 246), rgb(147 51 234));
+  border-radius: 9999px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: slideInUp 0.5s ease 0.2s backwards;
+}
+
+/* Form Card */
+.formCard {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  animation: slideInUp 0.6s ease;
+  scroll-padding-top: 100px;
+}
+
+/* Section Headers */
+.sectionHeader {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: rgb(17 24 39);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  letter-spacing: -0.025em;
+}
+
+.sectionHeader::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, rgba(156, 163, 175, 0.3), transparent);
+  margin-left: 1rem;
+}
+
+.sectionHeader svg {
+  margin-right: 0.75rem;
+}
+
+.personalIcon {
+  color: rgb(59 130 246);
+}
+
+.contactIcon {
+  color: rgb(34 197 94);
+}
+
+.socialIcon {
+  color: rgb(147 51 234);
+}
+
+/* Fields Grid */
+.fieldsGrid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Input Wrapper */
+.inputWrapper {
+  position: relative;
+}
+
+/* Input Field Container */
+.inputGroup {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  color: rgb(107 114 128);
+  z-index: 1;
+}
+
+.inputIcon.focused {
+  color: rgb(37 99 235);
+}
+
+.inputIcon.error {
+  color: rgb(220 38 38);
+}
+
+.inputField {
+  width: 100%;
+  padding: 1.25rem 3rem 1.25rem 3rem;
+  border: 2px solid rgb(229 231 235);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  font-size: 1.125rem;
+  font-weight: 600;
+  outline: none;
+  color: rgb(17 24 39);
+  letter-spacing: 0.025em;
+}
+
+.inputField:focus {
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  background: white;
+  color: rgb(0 0 0);
+}
+
+.inputField:hover:not(:focus) {
+  border-color: rgb(156 163 175);
+}
+
+.inputField.hasValue {
+  border-color: rgb(134 239 172);
+  background: rgba(255, 255, 255, 0.95);
+  color: rgb(17 24 39);
+}
+
+.inputField.hasError {
+  border-color: rgb(239 68 68);
+  background: rgba(255, 255, 255, 0.95);
+  animation: shake 0.3s ease;
+  color: rgb(17 24 39);
+}
+
+.requiredMark {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(239 68 68);
+  font-weight: 600;
+}
+
+.validIcon {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(34 197 94);
+  animation: scaleIn 0.3s ease;
+}
+
+.digitCounter {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(107 114 128);
+  background: rgb(243 244 246);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.toggleButton {
+  position: absolute;
+  right: 5.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgb(107 114 128);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s;
+  z-index: 2;
+}
+
+.toggleButton:hover {
+  color: rgb(75 85 99);
+}
+
+/* Info Box */
+.infoBox {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgb(219 234 254);
+  border: 1px solid rgb(147 197 253);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(30 64 175);
+  animation: slideDown 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.infoBox svg {
+  flex-shrink: 0;
+}
+
+/* Placeholder Styles */
+.inputField::placeholder {
+  color: rgb(107 114 128);
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Error Message */
+.errorMessage {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgb(254 226 226);
+  border: 2px solid rgb(239 68 68);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(127 29 29);
+  animation: slideDown 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
+}
+
+.errorMessage svg {
+  flex-shrink: 0;
+  color: rgb(220 38 38);
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.submitButton {
+  flex: 1;
+  background: linear-gradient(
+    to right,
+    rgb(59 130 246),
+    rgb(147 51 234),
+    rgb(219 39 119)
+  );
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.submitButton:hover::before {
+  left: 100%;
+}
+
+.submitButton:hover:not(:disabled) {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    to right,
+    rgb(37 99 235),
+    rgb(126 34 206),
+    rgb(190 24 93)
+  );
+}
+
+.submitButton:active:not(:disabled) {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submitButton svg {
+  transition: transform 0.3s;
+}
+
+.submitButton:hover:not(:disabled) svg:not(.spinIcon) {
+  transform: translateX(3px);
+}
+
+.secondaryButton {
+  background: white;
+  color: rgb(75 85 99);
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: 2px solid rgb(229 231 235);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  font-size: 1rem;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: rgb(147 51 234);
+  color: rgb(147 51 234);
+  background: rgb(250 245 255);
+}
+
+.secondaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Success Overlay */
+.successOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeIn 0.3s ease;
+}
+
+.successContent {
+  background: white;
+  padding: 3rem;
+  border-radius: 2rem;
+  text-align: center;
+  animation: bounceIn 0.6s ease;
+}
+
+.successContent h2 {
+  color: rgb(34 197 94);
+  font-size: 2rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.successContent p {
+  color: rgb(75 85 99);
+  font-size: 1.125rem;
+}
+
+.successIcon {
+  color: rgb(34 197 94);
+  animation: scaleIn 0.6s ease;
+}
+
+/* Spin Animation */
+.spinIcon {
+  animation: spin 1s linear infinite;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-bottom: 2rem;
+  color: rgb(107 114 128);
+}
+
+.footerNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Form Section */
+.formSection {
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.formSection:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.formSection:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.formSection:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .formCard {
+    padding: 1.75rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+  }
+
+  .sectionHeader {
+    font-size: 1.25rem;
+  }
+
+  .inputField {
+    font-size: 1rem;
+    padding: 1rem 3rem 1rem 3rem;
+  }
+
+  .submitButton {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+
+  .secondaryButton {
+    width: 100%;
+  }
+}
+/* Responsive for tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .formCard {
+    padding: 2rem;
+  }
+
+  .fieldsGrid {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .sectionHeader {
+    font-size: 1.3rem;
+  }
+
+  .inputField {
+    font-size: 1.0625rem;
+  }
+
+  .submitButton,
+  .secondaryButton {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  .actionButtons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .secondaryButton {
+    flex: 1;
+  }
+}
+
+/* Responsive for desktop (1025px and above) */
+@media (min-width: 1025px) {
+  .fieldsGrid {
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns on large desktop */
+  }
+
+  .formCard {
+    padding: 2.5rem 3rem;
+  }
+
+  .title {
+    font-size: 2.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.375rem;
+  }
+
+  .sectionHeader {
+    font-size: 1.375rem;
+  }
+
+  .inputField {
+    font-size: 1.125rem;
+  }
+
+  .submitButton,
+  .secondaryButton {
+    font-size: 1.0625rem;
+  }
+}
