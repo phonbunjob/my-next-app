@@ -327,13 +327,10 @@ export default function AlumniFormPage() {
         setTouched(new Set());
         setErrors({});
         setCompletionPercentage(0);
-        setSubmitStatus("idle");
       }, 3000);
     } catch (error) {
       console.error("Submit error:", error);
-      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false);
     }
   };
 
