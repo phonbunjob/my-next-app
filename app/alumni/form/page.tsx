@@ -1,29 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, memo } from "react";
-import {
-  User,
-  Phone,
-  Mail,
-  MessageCircle,
-  Facebook,
-  Instagram,
-  Briefcase,
-  CreditCard,
-  GraduationCap,
-  Send,
-  Check,
-  AlertCircle,
-  Loader2,
-  Save,
-  Eye,
-  EyeOff,
-  Info,
-  CheckCircle2,
-  X,
-  Download,
-  FileText,
-} from "lucide-react";
+import { CheckCircle2, Send, Loader2, Eye, EyeOff, Info, AlertCircle, Download, FileText, User, Phone, Mail, MessageCircle, Facebook, Instagram, Briefcase, CreditCard, GraduationCap } from "lucide-react";
 import styles from "./alumni-form.module.css";
 
 interface FormData {
@@ -206,7 +184,6 @@ export default function AlumniFormPage() {
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [touched, setTouched] = useState<Set<keyof FormData>>(new Set());
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [completionPercentage, setCompletionPercentage] = useState<number>(0);
   const [showSuccessAnimation, setShowSuccessAnimation] = useState<boolean>(false);
   const formRef = useRef<HTMLDivElement>(null);
